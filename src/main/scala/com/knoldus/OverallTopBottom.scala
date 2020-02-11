@@ -1,6 +1,6 @@
 package com.knoldus
 
-class ScoredNinetyFive {
+class OverallTopBottom {
   val studentList = List(Student(1, "Manas"), Student(2, "Muskan"), Student(3, "Sparsh"), Student(4, "Yamini"), Student(5, "Shivani"), Student(6, "Umang"), Student(7, "Krishna"), Student(8, "Abhinav"), Student(9, "Nischal"), Student(10, "Suraj"))
   val marksList = List(Marks(1, 1, 10), Marks(1, 2, 60), Marks(1, 3, 70), Marks(1, 4, 50), Marks(1, 5, 80), Marks(1, 6, 90), Marks(1, 7, 95), Marks(1, 8, 65), Marks(1, 9, 30), Marks(1, 10, 70),
     Marks(2, 1, 50), Marks(2, 2, 89), Marks(2, 3, 99), Marks(2, 4, 22), Marks(2, 5, 66), Marks(2, 6, 30), Marks(2, 7, 100), Marks(2, 8, 54), Marks(2, 9, 56), Marks(2, 10, 100),
@@ -22,13 +22,27 @@ class ScoredNinetyFive {
     })))).zip(studentList.sortBy(_.studId)).map(i => (i._2.name, i._1._2)).sortWith(_._2 > _._2)
   }
 
-  def percentNinetyFive() = {
-    percentName().filter(x => x._2 >= 95)
+  def overallTopBottomScore(topORbottom: String, count: Int) = {
+
+    topORbottom.toLowerCase match {
+
+      case "top" => {
+
+        percentName().slice(0, count)
+
+      }
+      case "bottom" => {
+        val tempList = percentName()
+        tempList.slice(count - 1, tempList.length)
+      }
+    }
+
   }
+
 
 }
 
-object ScoredNinetyFiveObject extends App {
-  val scoredNinetyFive = new ScoredNinetyFive
-  println(scoredNinetyFive.percentNinetyFive)
+object OverallTopBottomObject extends App {
+  val overallTopBottom = new OverallTopBottom
+  println(overallTopBottom.overallTopBottomScore("top", 4))
 }

@@ -1,10 +1,15 @@
 ```COLLECTION ASSIGNMENT``` by Manas Kashyap
 
-Find the student(s) who have scored 95% or above and print its details.
+Input:-
+(top/bottom, count)
 
-input: 95%
+OutPut:-
+Overall top/least scorer based on all the subjects score, fetch students name
+count- input defines that how much students name are to be printed on console
+
+e.g.
+input: top 2
 
 output:
-Kunal 95%
-Himanshu 96%
-Geetika 97%
+Himanshu 75%
+Geetika 74%
